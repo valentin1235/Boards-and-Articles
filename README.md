@@ -2,7 +2,7 @@
 1. 프로젝트를 클론합니다
 2. 가상환경을 만듭니다(작성자는 pycharm venv 사용)
 3. 가상환경 안에서 pip install -r requirements.txt 명령어를 통해서 필요 라이브러리를 다운받습니다.
-4. config.py 파일을 connection.py 파일과 같은 디렉토리에 생성해주고 아래와같은 config 내용을 넣습니다
+4. config.py 파일을 connection.py 파일과 같은 디렉토리에 생성해주고 아래와같은 config 내용을 넣습니다(이프로젝트는 postgresql를 데이터베이스로 사용하고 redis를 세션 )
 
          DATABASES = {
              'user': 'database_user_name',
