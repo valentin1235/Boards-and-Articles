@@ -1,4 +1,4 @@
-from flask import Blueprint
+from flask import Blueprint, jsonify
 from flask_request_validator import (
     JSON,
     Param,
@@ -22,9 +22,12 @@ class UserView:
               rules=[MaxLength(80)]),
         Param('password', JSON, str,
               rules=[MinLength(4)]),
-        Param('auth_type_id', JSON, int, required=True)
+        Param('auth_type_id', JSON, int)
     )
     def sign_up(*args):
+        if args[4] not in range(1, 3):
+            return jsonify({'message': 'INVALID_AUTH_TYPE'}), 400
+
         user_info = {
             'full_name': args[0],
             'email': args[1],
