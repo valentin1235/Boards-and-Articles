@@ -37,7 +37,7 @@ class UserService:
 
             token = jwt.encode({'id': user.id,
                                 'exp': datetime.utcnow() + timedelta(days=6)},
-                               SECRET['secret_key'], algorithm=SECRET['algorithm'])
+                                SECRET['secret_key'], algorithm=SECRET['algorithm'])
 
             # store key and token in redis
             redis_connection.set(random_name, token)
