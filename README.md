@@ -39,7 +39,7 @@ Simple board and article create, read, update and delete project.
 + 토큰 확인 후 성공 시 유저정보를 flask g 객체에 저장
 
 [회원가입]
-+ flask_request_validator를 통한 request body 유효성 검사(이메일 중복체크, 이메일 형식체크 등)
++ flask_request_validator를 통한 request body 유효성 검사(이메일 중복체크, 이메일 형식체크, 권한타입체크 등)
 + bcrypt 비밀번호 암호화 
 + 회원가입 성공 시 jwt 토큰(유효기간 6일)을 redis에 uuid를 키(key)로 하여 저장
 
