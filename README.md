@@ -40,7 +40,7 @@ Simple board and article create, read, update and delete project.
 
 [회원가입]
 + flask_request_validator를 통한 request body 유효성 검사(이메일 중복체크, 이메일 형식체크 등)
-+ bcrypt 비밀번호 암호화 : 단방향 암호화, 로그인 시 해쉬값을 비교
++ bcrypt 비밀번호 암호화 
 + 회원가입 성공 시 jwt 토큰(유효기간 6일)을 redis에 uuid를 키(key)로 하여 저장
 
          "8b3b9a0b-5fbc-47d6-a113-5479d33aec7f":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6OCwiZXhwIjoxNTg4NzY0MTU3fQ.W_gWd9sXPpLaY6teppDYgCKRW8rFz8O5-_vMcfzS6jM"
