@@ -72,7 +72,7 @@ class UserService:
 
             elif bcrypt.checkpw(user_info['password'].encode('utf-8'), user_info_db[0][0].encode('utf-8')):
                 token = jwt.encode({'id': user_info_db[0][1],
-                    'exp': datetime.utcnow() + timedelta(days=30)},
+                    'exp': datetime.utcnow() + timedelta(days=6)},
                     SECRET['secret_key'], algorithm=SECRET['algorithm'])
 
                 # store redis key in db

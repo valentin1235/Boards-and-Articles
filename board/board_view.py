@@ -217,7 +217,6 @@ class BoardView:
         board_list = board_service.get_board_list(board_info)
 
         for board in board_list:
-            board_service = BoardService()
             article_info = {
                 'board_id': board['id'],
                 'offset': args[0] if args[0] else 0,
