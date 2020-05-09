@@ -72,7 +72,7 @@ class UserService:
 
             elif bcrypt.checkpw(user_info['password'].encode('utf-8'), user_info_db[0][0].encode('utf-8')):
                 token = jwt.encode({'id': user_info_db[0][1],
-                    'exp': datetime.utcnow() + timedelta(days=30)},
+                    'exp': datetime.utcnow() + timedelta(days=6)},
                     SECRET['secret_key'], algorithm=SECRET['algorithm'])
 
                 # store redis key in db
@@ -100,37 +100,12 @@ class UserService:
                 print(e)
                 return jsonify({'message': 'SESSION_CLOSE_ERROR'}), 500
 
-    def log_out(self, token_info):
-        engine = get_db_connection()
+    def log_out(self, redis_key):
         redis_connection = get_redis_connection()
-        try:
-            Session = sessionmaker(bind=engine)
-            session = Session()
 
-            if not session.query(exists().where(RandomKey.key == token_info['key'])).one()[0]:
-                return jsonify({'message': 'INVALID_KEY'}), 400
-
-        except Exception as e:
-            print(e)
-            return jsonify({'message': e}), 500
-
-        finally:
-            try:
-                session.close()
-            except Exception as e:
-                print(e)
-                return jsonify({'message': 'SESSION_CLOSE_ERROR'}), 500
-
-        key = token_info.get('key', None)
-        access_token = token_info.get('token', None)
-        if (not key) or (not access_token):
+        if not redis_key:
             return jsonify({'message': 'INAVLID_REQUEST'}), 400
 
-        # generate expired token
-        payload = jwt.decode(access_token, SECRET['secret_key'], algorithm=SECRET['algorithm'])
-        payload['exp'] = datetime.utcnow()
-        logged_out_token = jwt.encode(payload, SECRET['secret_key'], algorithm=SECRET['algorithm'])
-
-        # replacing value on allocated key to expired token
-        redis_connection.set(key, logged_out_token)
+        # delete input key from redis storage
+        redis_connection.delete(redis_key)
         return jsonify({'message': 'SUCCESS'}), 200
