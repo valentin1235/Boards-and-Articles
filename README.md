@@ -55,8 +55,8 @@ Simple board and article create, read, update and delete project.
 + redis에 저장된 uuid 키(key)를 데이터베이스에 random_key테이블에 저장 
 
 [로그아웃]
-+ 로그인 할 때 리턴 한 redis 리소스 접근 key와 token을 request body로 받음
-+ request로 받은 key가 데이터베이스 random_key 테이블에 있으면 받은 token의 기간을 만료시켜서 redis에 있는 해당 key에 넣음(기존 key에 할당된 토큰을 만료된 토큰으로 치환함) 
++ 로그인 할 때 리턴 한 redis 리소스 접근 key를 request body로 받음
++ 토큰 접근 key를 redis에서 삭제해서 다음 api 요청 시 토큰을 찾을 수 없도록 함 
 
 [게시판 생성]
 + 유효성검사 : 마스터권한이 아닐 시 400 리턴
