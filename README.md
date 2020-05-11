@@ -25,6 +25,8 @@
 6. [API document](https://documenter.getpostman.com/view/10893095/SzmYA237?version=latest)를 참조해서 sign-up 부터 차례로 api를 호출할 수 있습니다.
 
 # Project Introduction
+##### [프로젝트 후기](https://velog.io/@valentin123/Project4-about-boards-articles-project)
+
 
 Simple board and article create, read, update and delete project. 
 
