@@ -1,8 +1,15 @@
 # How to run
 1. 프로젝트를 클론합니다
+> 1. Clone the project
 2. 가상환경을 만듭니다(작성자는 pycharm venv 사용)
+> 2. Create virtual environment(this project was made under the pycharm venv)
+
 3. 가상환경 안에서 pip install -r requirements.txt 명령어를 통해서 필요 라이브러리를 다운받습니다.
+> 3. download required library through 'pip install -r requirements.txt' 
+
 4. config.py 파일을 connection.py 파일과 같은 디렉토리에 생성해주고 아래와같은 config 내용을 넣습니다(이프로젝트는 postgresql를 데이터베이스로 사용하고 redis를 세션 저장공간으로 사용합니다)
+> 5. create config.py at the same dicrectory as connection.py and put the content as followed(in order to run the project, postgresql for database and redis for caching database are required)
+
 
          DATABASES = {
              'user': 'database_user_name',
@@ -23,6 +30,7 @@
          }
 5. alembic upgrade head 명령어를 실행해서 데이터베이스에 테이블을 생성합니다.
 6. [API document](https://documenter.getpostman.com/view/10893095/SzmYA237?version=latest)를 참조해서 sign-up 부터 차례로 api를 호출할 수 있습니다.
+> 6. You could check the [API document](https://documenter.getpostman.com/view/10893095/SzmYA237?version=latest) as a description of the API
 
 # Project Introduction
 ##### [프로젝트 후기](https://velog.io/@valentin123/Project4-about-boards-articles-project)
