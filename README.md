@@ -29,6 +29,8 @@
              'algorithm': 'HS256'
          }
 5. alembic upgrade head 명령어를 실행해서 데이터베이스에 테이블을 생성합니다.
+> 5. create database via alembic migration tool 'alembic upgrade head'
+
 6. [API document](https://documenter.getpostman.com/view/10893095/SzmYA237?version=latest)를 참조해서 sign-up 부터 차례로 api를 호출할 수 있습니다.
 > 6. You could check the [API document](https://documenter.getpostman.com/view/10893095/SzmYA237?version=latest) as a description of the API
 
